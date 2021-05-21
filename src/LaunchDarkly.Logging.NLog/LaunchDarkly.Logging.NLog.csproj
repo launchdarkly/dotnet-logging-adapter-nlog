@@ -20,7 +20,8 @@
     <Authors>LaunchDarkly</Authors>
     <Owners>LaunchDarkly</Owners>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <PackageProjectUrl>https://github.com/launchdarkly/dotnet-logging-adapter-nlog</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/launchdarkly/dotnet-logging-adapter-nlog</RepositoryUrl>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
