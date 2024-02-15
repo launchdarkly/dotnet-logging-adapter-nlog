@@ -1,0 +1,54 @@
+name: Run Release Please
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release-package:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write # Needed if using OIDC to get release secrets.
+      contents: write # Contents and pull-requests are for release-please to make releases.
+      pull-requests: write
+    steps:
+      - uses: google-github-actions/release-please-action@v3
+        id: release
+        with:
+          command: manifest
+          token: ${{secrets.GITHUB_TOKEN}}
+          default-branch: main
+
+      - uses: actions/checkout@v4
+        if: ${{ steps.release.outputs.releases_created }}
+        with:
+          fetch-depth: 0 # If you only need the current version remove this line.
+
+      - uses: launchdarkly/gh-actions/actions/release-secrets@release-secrets-v1.0.0
+        if: ${{ steps.release.outputs.releases_created }}
+        name: 'Get your token!'
+        with:
+          # The AWS_ROLE_ARN needs added as a var to your repo.
+          aws_assume_role: ${{ vars.AWS_ROLE_ARN }}
+          # This example uses the node release token, it will get set into the NODE_AUTH_TOKEN
+          # environment variable. The action readme contains more information.
+          ssm_parameter_pairs: '/production/common/releasing/npm/token = NODE_AUTH_TOKEN'
+
+      - uses: ./.github/actions/ci
+        if: ${{ steps.release.outputs.releases_created }}
+
+      - uses: ./.github/actions/publish
+        if: ${{ steps.release.outputs.releases_created }}
+        with:
+          # If publishing somewhere else, then get the token from SSM. If you need both github,
+          # and another token, then add more tokens to the composite action. Could be $NODE_AUTH_TOKEN
+          # from the release-secrets action earlier in this workflow.
+          token: ${{secrets.GITHUB_TOKEN}}
+
+      - uses: ./.github/actions/publish-docs
+        if: ${{ steps.release.outputs.releases_created }}
+        with:
+          # If publishing somewhere else, then get the token from SSM. If you need both github,
+          # and another token, then add more tokens to the composite action.
+          token: ${{secrets.GITHUB_TOKEN}}

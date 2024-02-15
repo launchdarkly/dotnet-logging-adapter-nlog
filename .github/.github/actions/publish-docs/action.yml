@@ -1,0 +1,19 @@
+# Publish to github pages or to a different documentation system.
+
+name: Publish Documentation
+description: 'Publish the documentation to X'
+inputs:
+  token:
+    description: 'Token to use for publishing.'
+    required: true
+
+runs:
+  using: composite
+  steps:
+    # This publishes a 'docs' folder to github pages. If you need to publish another way,
+    # then you can just script it here, or call a script.
+    - uses: launchdarkly/gh-actions/actions/publish-pages@publish-pages-v1.0.1
+      name: 'Publish to Github pages'
+      with:
+        docs_path: docs
+        github_token: { token } # For the shared action the token should be a GITHUB_TOKEN

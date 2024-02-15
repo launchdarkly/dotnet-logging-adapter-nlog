@@ -1,0 +1,38 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "src": "./src",
+          "files": [
+            "**/*.csproj"
+          ]
+        }
+      ],
+      "dest": "./api"
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [
+          "**/*.{md,yml}"
+        ],
+        "exclude": [
+          "docs/**"
+        ]
+      }
+    ],
+    "output": "docs",
+    "template": [
+      "default",
+      "modern"
+    ],
+    "globalMetadata": {
+      "_appName": "Launchdarkly Logging Adapter For NLog",
+      "_appTitle": "Launchdarkly Logging Adapter For NLog",
+      "_enableSearch": true,
+      "pdf": false
+    }
+  }
+}
