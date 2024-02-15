@@ -80,3 +80,7 @@ project.lock.json
 
 *.snk
 *.p12
+
+_site/
+docs/
+api/
