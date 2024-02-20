@@ -1,6 +1,5 @@
 name: Publish Package
 on:
-  pull_request:
   workflow_dispatch:
     inputs:
       run_tests:
