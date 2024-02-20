@@ -25,8 +25,8 @@ on:
 
 jobs:
   # Building is done on mac runner due to xcode build dependencies
-  build:
-    runs-on: macos-13
+  build-and-publish:
+    runs-on: ubuntu-latest
     permissions:
       id-token: write
       contents: read
@@ -35,13 +35,6 @@ jobs:
         with:
           fetch-depth: 0 # If you only need the current version keep this
 
-  sign-dlls:
-    runs-on: ubuntu-latest
-    needs: build
-    permissions:
-      id-token: write
-      contents: read
-    steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0 # If you only need the current version keep this
