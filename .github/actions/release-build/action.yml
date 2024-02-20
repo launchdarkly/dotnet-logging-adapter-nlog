@@ -4,11 +4,6 @@ description: 'Build in Release Configuration'
 runs:
   using: composite
   steps:
-    - name: Download SNK
-      # description: The SNK is used to strongly name the assemblies during build.
-      shell: bash
-      run: aws s3 cp s3://launchdarkly-releaser/dotnet/LaunchDarkly.ClientSdk.snk LaunchDarkly.ClientSdk.snk
-
     - name: Setup dotnet build tools
       uses: actions/setup-dotnet@v3
       with:
