@@ -2,6 +2,14 @@
 
 All notable changes to the project will be documented in this file. For full release notes for the projects that depend on this project, see their respective changelogs. This file describes changes only to the common code. This project adheres to [Semantic Versioning](http://semver.org).
 
+## [1.1.0](https://github.com/launchdarkly/dotnet-logging-adapter-nlog/compare/1.0.1...1.1.0) (2024-02-21)
+
+
+### Features
+
+* Update dependencies to allow using NLog v5. ([f6ba29d](https://github.com/launchdarkly/dotnet-logging-adapter-nlog/commit/f6ba29ded2e8b817db796b5c2edd87b7a0c88dc2))
+* Update dependencies to allow using NLog v5. ([d817628](https://github.com/launchdarkly/dotnet-logging-adapter-nlog/commit/d8176289d12a46b82ae3402694b858aa0b5f607e))
+
 ## [1.0.1] - 2021-05-20
 ### Changed:
 - Updated dependencies on `LaunchDarkly.Logging` to version 1.0.1.
