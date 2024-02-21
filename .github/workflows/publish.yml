@@ -43,7 +43,7 @@ jobs:
         with:
           run_tests: ${{ inputs.run_tests }}
 
-      - uses: launchdarkly/gh-actions/actions/release-secrets@rlamb/add-s3-to-release-secrets
+      - uses: launchdarkly/gh-actions/actions/release-secrets@release-secrets-v1.1.0
         name: Get secrets
         with:
           aws_assume_role: ${{ vars.AWS_ROLE_ARN }}
@@ -59,7 +59,7 @@ jobs:
         uses: ./.github/actions/release-build
 
       - name: Sign DLLs
-        uses: launchdarkly/gh-actions/actions/sign-dlls@rlamb/add-dll-sign-shared-action
+        uses: launchdarkly/gh-actions/actions/sign-dlls@sign-dlls-v1.0.0
         with:
           build_configuration_path: "src/LaunchDarkly.Logging.NLog/bin/Release/"
           dll_name: 'LaunchDarkly.Logging.NLog.dll'
