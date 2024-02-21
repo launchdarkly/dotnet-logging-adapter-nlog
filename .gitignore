@@ -84,3 +84,4 @@ project.lock.json
 _site/
 docs/
 api/
+nupkgs/

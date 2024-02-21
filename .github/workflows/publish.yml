@@ -4,7 +4,6 @@ on:
     inputs:
       run_tests:
         description: 'If true, run unit tests, otherwise skip them.'
-        required: false
         type: boolean
         default: true
       dry_run:
@@ -48,7 +47,12 @@ jobs:
         name: Get secrets
         with:
           aws_assume_role: ${{ vars.AWS_ROLE_ARN }}
-          ssm_parameter_pairs: '/production/common/releasing/digicert/host = DIGICERT_HOST,/production/common/releasing/digicert/api_key = DIGICERT_API_KEY,/production/common/releasing/digicert/client_cert_file_b64 = DIGICERT_CLIENT_CERT_FILE_B64,/production/common/releasing/digicert/client_cert_password = DIGICERT_CLIENT_CERT_PASSWORD,/production/common/releasing/digicert/code_signing_cert_sha1_hash = DIGICERT_CODE_SIGNING_CERT_SHA1_HASH'
+          ssm_parameter_pairs: '/production/common/releasing/digicert/host = DIGICERT_HOST,
+          /production/common/releasing/digicert/api_key = DIGICERT_API_KEY,
+          /production/common/releasing/digicert/client_cert_file_b64 = DIGICERT_CLIENT_CERT_FILE_B64,
+          /production/common/releasing/digicert/client_cert_password = DIGICERT_CLIENT_CERT_PASSWORD,
+          /production/common/releasing/digicert/code_signing_cert_sha1_hash = DIGICERT_CODE_SIGNING_CERT_SHA1_HASH,
+          /production/common/releasing/nuget/api_key = NUGET_API_KEY'
           s3_path_pairs: 'launchdarkly-releaser/dotnet/LaunchDarkly.Logging.snk = LaunchDarkly.Logging.snk'
 
       - name: Release Build
@@ -60,7 +64,7 @@ jobs:
           build_configuration_path: "src/LaunchDarkly.Logging.NLog/bin/Release/"
           dll_name: 'LaunchDarkly.Logging.NLog.dll'
 
-#      - name: Publish Nupkg
-#        uses: ./.github/actions/publish
-#        with:
-#          dry_run: ${{ inputs.dry_run }}
+      - name: Publish Nupkg
+        uses: ./.github/actions/publish
+        with:
+          dry_run: ${{ inputs.dry_run }}

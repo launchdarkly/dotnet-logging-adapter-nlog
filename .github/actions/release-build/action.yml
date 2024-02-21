@@ -15,4 +15,4 @@ runs:
 
     - name: Build
       shell: bash
-      run: dotnet build /p:Configuration=release
+      run: dotnet build /p:Configuration=Release
