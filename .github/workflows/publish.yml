@@ -23,7 +23,6 @@ on:
         required: true
 
 jobs:
-  # Building is done on mac runner due to xcode build dependencies
   build-and-publish:
     runs-on: ubuntu-latest
     permissions:
@@ -32,11 +31,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # If you only need the current version keep this
-
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0 # If you only need the current version keep this
+          fetch-depth: 0
 
       - name: CI check
         uses: ./.github/actions/ci
