@@ -1,0 +1,14 @@
+{
+  "bootstrap-sha": "90dc21e43418866c89aee34a3da1706f7fb369c7",
+  "packages": {
+    ".": {
+      "release-type": "simple",
+      "versioning": "default",
+      "include-v-in-tag": false,
+      "include-component-in-tag": false,
+      "extra-files": [
+        "src/LaunchDarkly.Logging.NLog/LaunchDarkly.Logging.NLog.csproj"
+      ]
+    }
+  }
+}
