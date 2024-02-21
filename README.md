@@ -1,7 +1,7 @@
 # LaunchDarkly Logging API for .NET - NLog Adapter
 
 [![NuGet](https://img.shields.io/nuget/v/LaunchDarkly.Logging.NLog.svg?style=flat-square)](https://www.nuget.org/packages/LaunchDarkly.Logging.NLog/)
-[![CircleCI](https://circleci.com/gh/launchdarkly/dotnet-logging-adapter-nlog.svg?style=shield)](https://circleci.com/gh/launchdarkly/dotnet-logging-adapter-nlog)
+[![CI](https://github.com/launchdarkly/dotnet-logging-adapter-nlog/actions/workflows/ci.yml/badge.svg)](https://github.com/launchdarkly/dotnet-logging-adapter-nlog/actions/workflows/ci.yml)
 [![Documentation](https://img.shields.io/static/v1?label=GitHub+Pages&message=reference&color=00add8)](https://launchdarkly.github.io/dotnet-logging-adapter-nlog)
 
 ## Overview
