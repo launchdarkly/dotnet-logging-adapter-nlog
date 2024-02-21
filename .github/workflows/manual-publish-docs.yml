@@ -1,0 +1,20 @@
+on:
+  workflow_dispatch:
+
+name: Publish Documentation
+jobs:
+  build-publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Needed in this case to write github pages.
+    steps:
+      - uses: actions/checkout@v4
+      - id: build
+        name: Build and Test
+        uses: ./.github/actions/ci
+
+      - id: publish
+        name: Publish Documentation
+        uses: ./.github/actions/publish-docs
+        with:
+          token: ${{secrets.GITHUB_TOKEN}}
