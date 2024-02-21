@@ -31,3 +31,8 @@ jobs:
     with:
       run_tests: true
       dry_run: false
+
+  call-workflow-publish-docs:
+    needs: release-please
+    uses: ./.github/workflows/publish-docs.yml
+    if: ${{ needs.release-please.outputs.releases_created == 'true' }}
