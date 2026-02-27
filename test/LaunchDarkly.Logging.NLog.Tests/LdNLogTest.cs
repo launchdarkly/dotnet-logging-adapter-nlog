@@ -10,7 +10,9 @@ namespace LaunchDarkly.Logging.Tests
         {
             var nLogCapture = new NLog.Targets.MemoryTarget();
             nLogCapture.Layout = "${level}: ${message}";
-            NLog.Config.SimpleConfigurator.ConfigureForTargetLogging(nLogCapture, NLog.LogLevel.Debug);
+            var nLogConfig = new NLog.Config.LoggingConfiguration();
+            nLogConfig.AddRuleForAllLevels(nLogCapture);
+            NLog.LogManager.Configuration = nLogConfig;
 
             var ourAdapter = LdNLog.Adapter;
             var logger1 = ourAdapter.Logger("things");
