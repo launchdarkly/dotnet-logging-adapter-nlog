@@ -2,6 +2,13 @@
 
 All notable changes to the project will be documented in this file. For full release notes for the projects that depend on this project, see their respective changelogs. This file describes changes only to the common code. This project adheres to [Semantic Versioning](http://semver.org).
 
+## [1.1.1](https://github.com/launchdarkly/dotnet-logging-adapter-nlog/compare/1.1.0...1.1.1) (2026-02-27)
+
+
+### Bug Fixes
+
+* Support NLog v6 ([#16](https://github.com/launchdarkly/dotnet-logging-adapter-nlog/issues/16)) ([48a54fe](https://github.com/launchdarkly/dotnet-logging-adapter-nlog/commit/48a54fe81c3258f982c7135a4d9f53c83ba59c9f))
+
 ## [1.1.0](https://github.com/launchdarkly/dotnet-logging-adapter-nlog/compare/1.0.1...1.1.0) (2024-02-21)
 
 
